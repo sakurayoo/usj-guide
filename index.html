@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>USJ 10/6 任天堂攻略</title>
+<meta name="description" content="2026/10/6 大阪環球影城一日攻略：任天堂優先、不坐雲霄飛車、不進鬼屋，從開園玩到閉園。">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fafaf9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  /* ponytail: 固定淺色。dark: 只在有 .dark class 時生效，頁面沒加，所以永遠白底；想恢復跟隨系統就刪這行 */
+  @custom-variant dark (&:where(.dark, .dark *));
+  @theme {
+    --font-sans: "Noto Sans TC", system-ui, sans-serif;
+    --font-num: "Outfit", "Noto Sans TC", sans-serif;
+    --color-accent: #d9362b;
+  }
+  /* 形狀規則：卡片 rounded-2xl、按鈕/標籤一律 full pill */
+  @layer components {
+    .card { @apply rounded-2xl bg-white p-4 ring-1 ring-stone-200 dark:bg-stone-900 dark:ring-stone-800; }
+    .badge { @apply inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold; }
+    .b-must { @apply bg-accent text-white; }
+    .b-good { @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300; }
+    .b-maybe { @apply bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300; }
+    .b-skip { @apply bg-stone-200 text-stone-600 dark:bg-stone-800 dark:text-stone-400; }
+    .meta { @apply rounded-full bg-stone-100 px-2 py-0.5 text-stone-600 dark:bg-stone-800 dark:text-stone-300; }
+    .jp { @apply text-xs text-stone-500 dark:text-stone-400; }
+    .h2 { @apply text-3xl font-black tracking-tight; }
+    .h3 { @apply text-xl font-black tracking-tight; }
+    .tip { @apply rounded-xl bg-stone-100 px-3 py-2 text-sm text-stone-700 dark:bg-stone-800/70 dark:text-stone-300; }
+    .warn { @apply rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900 ring-1 ring-amber-200 dark:bg-amber-950/50 dark:text-amber-200 dark:ring-amber-900; }
+    .area { @apply rounded-full bg-accent/10 px-2 py-0.5 text-xs font-bold text-accent; }
+    .dot { @apply absolute -left-[1.72rem] top-1 size-3 rounded-full bg-accent ring-4 ring-stone-50 dark:ring-stone-950; }
+    .step { @apply mt-1 text-sm text-stone-600 dark:text-stone-400; }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  [id] { scroll-margin-top: 4.5rem; }
+</style>
+</head>
+<body class="bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
+
+<header class="sticky top-0 z-20 border-b border-stone-200 bg-stone-50/90 backdrop-blur dark:border-stone-800 dark:bg-stone-950/90">
+  <div class="mx-auto flex max-w-xl items-center justify-between px-4 py-3">
+    <a href="#plan" class="font-num text-lg font-extrabold tracking-tight">USJ <span class="text-accent">10/6</span></a>
+  </div>
+</header>
+
+<main class="mx-auto max-w-xl px-4 pb-8">
+
+  <!-- ============ 路線 ============ -->
+  <section id="plan" data-page>
+    <div class="pt-8 pb-6">
+      <p class="font-num text-6xl font-extrabold leading-none tracking-tighter">10/6<span class="ml-2 align-middle text-2xl text-stone-400">週二</span></p>
+      <h1 class="mt-3 text-3xl font-black leading-tight tracking-tight">大阪環球影城<br><span class="text-accent">任天堂優先</span>一日攻略</h1>
+      <p class="mt-3 text-stone-600 dark:text-stone-400">不坐雲霄飛車、不進鬼屋，從開園玩到閉園。</p>
+
+      <div class="mt-6 grid grid-cols-2 gap-3">
+        <div class="card">
+          <i class="ph ph-clock text-xl text-accent"></i>
+          <p class="mt-1 font-num text-2xl font-bold">8:00-22:00</p>
+          <p class="text-xs text-stone-500">營業時間，常提早開門</p>
+        </div>
+        <div class="card">
+          <i class="ph ph-flag-banner text-xl text-accent"></i>
+          <p class="mt-1 font-num text-2xl font-bold">13:00</p>
+          <p class="text-xs text-stone-500">25 週年遊行，一天只有一場</p>
+        </div>
+        <div class="card">
+          <i class="ph ph-users-three text-xl text-accent"></i>
+          <p class="mt-1 font-num text-2xl font-bold">C 級</p>
+          <p class="text-xs text-stone-500">預測擁擠度，平均排隊約 76 分</p>
+        </div>
+        <div class="card">
+          <i class="ph ph-skull text-xl text-accent"></i>
+          <p class="mt-1 font-num text-2xl font-bold">18:00 起</p>
+          <p class="text-xs text-stone-500">街頭殭屍、殭屍舞登場</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-6">
+      <h2 class="h3">只記三件事也可以</h2>
+      <ol class="mt-4 space-y-3">
+        <li class="flex gap-3">
+          <span class="font-num text-3xl font-extrabold leading-none text-accent">1</span>
+          <p><b>開門直衝瑪利歐賽車。</b>開門第一波只要約 15 分，半小時後就破百。</p>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-num text-3xl font-extrabold leading-none text-accent">2</span>
+          <p><b>入園先看 App 的任天堂狀態。</b>顯示「フリー」就直接進；要整理券就馬上抽。最近同等級的平日整天都是フリー。</p>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-num text-3xl font-extrabold leading-none text-accent">3</span>
+          <p><b>熱門設施留到晚上。</b>禁忌之旅 19:30 後、瑪利歐賽車和耀西 21:00 後，實測只要 10~25 分。</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="py-6">
+      <h2 class="h2">建議路線</h2>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">只標必須準時的表演，和排隊最短的時段。其他照順序走就好。</p>
+
+      <h3 class="mt-8 text-lg font-black"><span class="text-accent">1.</span> 早上：任天堂</h3>
+      <ol class="relative mt-4 space-y-6 border-l-2 border-accent/30 pl-5">
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">大門</span>
+          <p class="mt-1 font-bold">開門前就到大門排隊</p>
+          <p class="step">平日常比官方時間提早放人，越早到越好。</p>
+          <p class="tip mt-2">建議把全員門票都登錄在同一支手機的 App：萬一任天堂要整理券，App 只能幫登錄在這支手機的人一起抽，大家才會拿到同一個時段。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">移動</span>
+          <p class="mt-1 font-bold">快走去任天堂（約 10 分鐘）</p>
+          <p class="step">穿過好萊塢區 → 梅爾餐廳（メルズ・ドライブイン）前右轉 → 看到環球奇境入口不要進去，左轉 → 經過大白鯊（親善村）→ 水世界右手邊就是任天堂的水管入口。</p>
+          <p class="tip mt-2">App 顯示「フリー」直接進；要整理券就邊走邊抽，選最早的時段。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">任天堂</span><span class="meta ml-1 text-xs">開門第一波 約 15 分</span>
+          <p class="mt-1 font-bold">瑪利歐賽車</p>
+          <p class="step">進區第一個衝，入口在碧姬公主城堡裡。晚一點排隊就是 70~150 分。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">任天堂</span><span class="meta ml-1 text-xs">早上 約 35~60 分</span>
+          <p class="mt-1 font-bold">耀西冒險</p>
+          <p class="step">下了賽車馬上排。如果排太長，直接留到晚上 21:00 後再坐（只要 10~15 分）。</p>
+          <p class="warn mt-2"><b>大金剛礦車：</b>只有開門那一刻排隊短（約 5 分），之後整天 2~4 小時。想坐就改成開門先衝大金剛，瑪利歐賽車留到晚上。不坐就直接逛大金剛區、吃 DK 聖代（第 5 名）。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">任天堂</span>
+          <p class="mt-1 font-bold">Power-Up Band 闖關、拍照</p>
+          <p class="step">每一關都要排隊（大多 5~20 分），5 關裡拿到 3 把鑰匙就能打庫巴 Jr.，全破大概 1~2 小時。早上先玩一兩關、拍城堡和水管，剩下的晚上回來再闖。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">任天堂</span>
+          <p class="mt-1 font-bold">10 點左右吃奇諾比奧咖啡廳</p>
+          <p class="step">美食排名第 2 名，11:30 後會大排長龍。吃完約 10:55 出區，往大門方向走。</p>
+          <p class="tip mt-2">要退稅的周邊早上就買好，收據留著。退稅要在閉園前辦，晚上排超久，下午會一起去辦。</p>
+        </li>
+      </ol>
+
+      <h3 class="mt-10 text-lg font-black"><span class="text-accent">2.</span> 中午：表演連發</h3>
+      <ol class="relative mt-4 space-y-6 border-l-2 border-accent/30 pl-5">
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">キャノピー下</span><span class="badge b-must ml-1">11:15</span>
+          <p class="mt-1 font-bold">Discover U!!! 時刻</p>
+          <p class="step">跟著 25 週年主題曲一起跳舞。上午這場在大門附近的大遮棚（キャノピー）下。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">小小兵</span><span class="meta ml-1 text-xs">中午前後 約 25 分</span>
+          <p class="mt-1 font-bold">小小兵瘋狂乘車遊</p>
+          <p class="step">中午是它排隊的低點，下午 3 點多會變 50~80 分。冰凍雷射光整天都短，順便坐。點心吃小小兵夾心餅乾（第 8 名）。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">小小兵樂園前 / キャノピー下</span><span class="badge b-must ml-1">12:05</span>
+          <p class="mt-1 font-bold">小小兵萬聖節迎賓</p>
+          <p class="step">萬聖節裝扮的小小兵，可以拍照互動。這場在哪個點看 App。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">好萊塢</span><span class="badge b-must ml-1">13:00</span>
+          <p class="mt-1 font-bold">25 週年遊行</p>
+          <p class="step">12:30 前到「梅爾餐廳前～好萊塢美夢入口」卡位，這裡是第一個停留點，花車停下來時可以下到車道一起跳舞。整場約 40 分鐘。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">紐約</span>
+          <p class="mt-1 font-bold">午餐</p>
+          <p class="step">路易紐約披薩，或紐約區 Battery Park North 餐車的火雞腿（第 3 名）。</p>
+        </li>
+      </ol>
+
+      <h3 class="mt-10 text-lg font-black"><span class="text-accent">3.</span> 下午：水世界、藍調盛典</h3>
+      <ol class="relative mt-4 space-y-6 border-l-2 border-accent/30 pl-5">
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">水世界</span><span class="badge b-must ml-1">15:00</span>
+          <p class="mt-1 font-bold">水世界特技秀</p>
+          <p class="step">從紐約走過去約 15 分，提早 20 分入座。前排會被潑濕。侏儸紀公園入口就在對面，沒吃火雞腿的話這裡也有賣。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">紐約</span><span class="badge b-must ml-1">15:50</span>
+          <p class="mt-1 font-bold">終極藍調盛典</p>
+          <p class="step">在 SING ON TOUR 劇場旁的舞台，水世界散場直接走過去剛好。</p>
+          <p class="tip mt-2">也有 14:15 場，但看完要趕 15:00 的水世界會很急，所以排 15:50。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">自由時間</span>
+          <p class="mt-1 font-bold">買紀念品、辦退稅</p>
+          <p class="step">藍調盛典結束走去大門附近：環球影城商店、瑪利歐咖啡廳（鬆餅三明治第 9 名）買一買，直接到大門旁的 STUDIO GIFTS 辦退稅。退完的袋子可以先放置物櫃。細節在 <a class="underline" href="#tax">必買</a> 頁。</p>
+          <p class="tip mt-2">還有時間的話：大白鯊這時排隊也短（約 20~25 分，傍晚就收）、環球奇境拍照、芙莉蓮 Story Walk。</p>
+        </li>
+      </ol>
+
+      <h3 class="mt-10 text-lg font-black"><span class="text-accent">4.</span> 晚上：熱門設施排隊最短</h3>
+      <ol class="relative mt-4 space-y-6 border-l-2 border-accent/30 pl-5">
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">好萊塢、紐約</span><span class="badge b-must ml-1">18:00</span>
+          <p class="mt-1 font-bold">殭屍登場</p>
+          <p class="step">街上開始有殭屍遊蕩，殭屍舞在好幾個地方輪流跳，好萊塢大道最熱鬧。往哈利波特走的路上邊看。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">哈利波特</span><span class="meta ml-1 text-xs">19:30 後 約 10~25 分</span>
+          <p class="mt-1 font-bold">三根掃帚晚餐 → 禁忌之旅</p>
+          <p class="step">先吃晚餐（第 4 名），19:30 後去排禁忌之旅，下午要 70~90 分的它晚上只剩一點點。再喝奶油啤酒（第 1 名）、拍城堡夜景。</p>
+          <p class="tip mt-2">鷹馬 20:45 後最短（約 20~40 分），時間夠再坐。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">任天堂</span><span class="meta ml-1 text-xs">21:00 後 約 10~20 分</span>
+          <p class="mt-1 font-bold">回任天堂：瑪利歐賽車第二輪、耀西、夜景</p>
+          <p class="step">晚上的碧姬城堡和問號磚會亮燈。瑪利歐賽車約 15~20 分、耀西約 10~15 分，Band 闖關也補完。晚上加買的周邊就不退稅了。</p>
+          <p class="warn mt-2">如果當天任天堂要整理券，下午就先在 App 抽 20:30 以後的時段。</p>
+        </li>
+        <li class="relative">
+          <span class="dot"></span>
+          <span class="area">大門</span><span class="badge b-must ml-1">22:00</span>
+          <p class="mt-1 font-bold">閉園，一路看殭屍走出去</p>
+          <p class="step">閉園前後大門附近的商店和退稅櫃台都會擠爆，所以才把購物和退稅排在下午。</p>
+        </li>
+      </ol>
+    </div>
+
+    <div id="waits" class="py-6">
+      <h2 class="h2">熱門設施的黃金時段</h2>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">根據 <a class="underline" href="https://usjreal.asumirai.info/" target="_blank" rel="noopener">ユニバリアル</a> 9/17（四）、9/29（二）的實際排隊紀錄。這兩天跟 10/6 一樣是 C 級平日、8:00-22:00 營業，當天以 App 即時等待時間為準。</p>
+
+      <div class="mt-4 space-y-2">
+        <div class="card !py-3">
+          <p class="font-bold">瑪利歐賽車</p>
+          <p class="mt-1 text-sm"><span class="font-bold text-emerald-700 dark:text-emerald-400">短：</span>開門第一波約 15 分、21:00 後約 15~20 分、19:00~20:30 約 40~50 分</p>
+          <p class="text-sm text-stone-500"><span class="font-bold">長：</span>8:45~18:00 約 60~150 分</p>
+        </div>
+        <div class="card !py-3">
+          <p class="font-bold">大金剛礦車</p>
+          <p class="mt-1 text-sm"><span class="font-bold text-emerald-700 dark:text-emerald-400">短：</span>只有開門那一刻約 5 分</p>
+          <p class="text-sm text-stone-500"><span class="font-bold">長：</span>開門半小時後就破百，整天大多 110~270 分，晚上 21 點左右就停止排隊</p>
+        </div>
+        <div class="card !py-3">
+          <p class="font-bold">耀西冒險</p>
+          <p class="mt-1 text-sm"><span class="font-bold text-emerald-700 dark:text-emerald-400">短：</span>開門約 5 分、21:00 後約 10~15 分</p>
+          <p class="text-sm text-stone-500"><span class="font-bold">長：</span>白天約 30~90 分</p>
+        </div>
+        <div class="card !py-3">
+          <p class="font-bold">哈利波特禁忌之旅</p>
+          <p class="mt-1 text-sm"><span class="font-bold text-emerald-700 dark:text-emerald-400">短：</span>19:30 後約 10~25 分、開門約 15 分</p>
+          <p class="text-sm text-stone-500"><span class="font-bold">長：</span>14:30~17:30 約 60~90 分</p>
+        </div>
+        <div class="card !py-3">
+          <p class="font-bold">鷹馬的飛行</p>
+          <p class="mt-1 text-sm"><span class="font-bold text-emerald-700 dark:text-emerald-400">短：</span>開門半小時內約 10~30 分、20:45 後約 20~40 分</p>
+          <p class="text-sm text-stone-500"><span class="font-bold">長：</span>白天大多 60~95 分</p>
+        </div>
+        <div class="card !py-3">
+          <p class="font-bold">小小兵瘋狂乘車遊</p>
+          <p class="mt-1 text-sm"><span class="font-bold text-emerald-700 dark:text-emerald-400">短：</span>9:45~10:15 約 10~15 分、中午前後約 10~25 分、18:15~18:45 約 15~35 分</p>
+          <p class="text-sm text-stone-500"><span class="font-bold">長：</span>15:00~16:30 約 50~80 分</p>
+        </div>
+        <div class="card !py-3">
+          <p class="font-bold">冰凍雷射光乘車遊</p>
+          <p class="mt-1 text-sm"><span class="font-bold text-emerald-700 dark:text-emerald-400">短：</span>整天大多 10~40 分，路過就坐</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 設施（全園，依區域） ============ -->
+  <section id="rides" data-page class="pt-8">
+    <h2 class="h2">全園設施</h2>
+    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">10/6 有開的設施全部都在這裡，依區域排、標了適不適合你們。萬聖節恐怖設施在 <a class="underline" href="#skip">注意</a> 頁。</p>
+
+    <div id="zone-filters" class="mt-4 flex flex-wrap gap-2 text-sm font-medium">
+      <button type="button" data-area="" aria-pressed="true" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">全部區域</button>
+      <button type="button" data-area="nintendo" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">任天堂</button>
+      <button type="button" data-area="hp" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">哈利波特</button>
+      <button type="button" data-area="area-minion" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">小小兵樂園</button>
+      <button type="button" data-area="area-wonderland" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">環球奇境</button>
+      <button type="button" data-area="area-ny" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">紐約區</button>
+      <button type="button" data-area="area-hollywood" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">好萊塢區</button>
+      <button type="button" data-area="area-amity" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">親善村</button>
+      <button type="button" data-area="area-waterworld" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">水世界</button>
+      <button type="button" data-area="area-jurassic" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">侏儸紀公園</button>
+      <button type="button" data-area="area-limited" aria-pressed="false" class="rounded-full bg-stone-200/70 px-3 py-1.5 aria-pressed:bg-stone-900 aria-pressed:text-white">期間限定</button>
+    </div>
+
+    <p class="mt-4 text-xs text-stone-500">點標籤只看那一類：</p>
+    <div id="filters" class="mt-2 flex flex-wrap gap-2 text-xs">
+      <button type="button" data-filter="" aria-pressed="true" class="badge bg-white px-3 py-1 text-stone-700 ring-1 ring-stone-300 aria-pressed:ring-2 aria-pressed:ring-stone-900">全部</button>
+      <button type="button" data-filter="b-must" aria-pressed="false" class="badge b-must px-3 py-1 aria-pressed:ring-2 aria-pressed:ring-stone-900 aria-pressed:ring-offset-1">必玩</button>
+      <button type="button" data-filter="b-good" aria-pressed="false" class="badge b-good px-3 py-1 aria-pressed:ring-2 aria-pressed:ring-stone-900 aria-pressed:ring-offset-1">推薦</button>
+      <button type="button" data-filter="b-maybe" aria-pressed="false" class="badge b-maybe px-3 py-1 aria-pressed:ring-2 aria-pressed:ring-stone-900 aria-pressed:ring-offset-1">看心情</button>
+      <button type="button" data-filter="b-skip" aria-pressed="false" class="badge b-skip px-3 py-1 aria-pressed:ring-2 aria-pressed:ring-stone-900 aria-pressed:ring-offset-1">注意</button>
+    </div>
+
+    <!-- 任天堂 -->
+    <div id="nintendo" class="mt-10">
+      <h3 class="h3">超級任天堂世界</h3>
+      <p class="jp mt-1">スーパー・ニンテンドー・ワールド（含 ドンキーコング・カントリー）</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">今天的主角。沒有殭屍，晚上亮燈很美。</p>
+
+      <div class="card mt-4">
+        <h4 class="flex items-center gap-2 font-bold"><i class="ph ph-ticket text-accent"></i>怎麼進去</h4>
+        <ul class="mt-2 space-y-2 text-sm text-stone-700 dark:text-stone-300">
+          <li><b>先看狀態：</b>App 顯示「フリー」就是不用整理券、直接進，可以自由進出。9/17、9/29 這種同等級平日，整天都是フリー。</li>
+          <li><b>要整理券時：</b>入園後用官方 App「e整理券」抽，只能幫已入園的人抽，會指定一個入場時段。2026/1/5 起只剩 App，紙本停發。發完會改成抽選券，全員用同一支手機一起抽。</li>
+          <li><b>晚上還想回來：</b>如果當天要整理券，下午就先抽 20:30 以後的時段。</li>
+        </ul>
+      </div>
+
+      <div class="mt-3 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">瑪利歐賽車～庫巴的挑戰書～</h4><p class="jp">マリオカート ～クッパの挑戦状～</p></div>
+            <span class="badge b-must">必玩</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">戴 AR 眼鏡坐賽車，看著敵人按按鈕丟龜殼。車子不會高速衝，是「玩遊戲」的感覺，不是雲霄飛車。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 低</span><span class="meta">可怕 無</span><span class="meta">室內</span><span class="meta">約 5 分鐘</span></div>
+          <p class="tip mt-3">轉頭看目標再按按鈕，連按比抓時機有用。有開單人通道（シングルライダー）的話可以省很多時間，但同行者會被拆開坐。</p>
+        </article>
+
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">耀西冒險</h4><p class="jp">ヨッシー・アドベンチャー</p></div>
+            <span class="badge b-must">必玩</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">坐在耀西背上慢慢繞一圈找蛋，高處可以看到整個任天堂區，很好拍。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 很低</span><span class="meta">可怕 無</span><span class="meta">戶外</span><span class="meta">約 5 分鐘</span></div>
+          <p class="tip mt-3">戶外設施，下雨或強風會暫停。</p>
+        </article>
+
+        <article id="dk" class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">大金剛的瘋狂礦車</h4><p class="jp">ドンキーコングのクレイジー・トロッコ</p></div>
+            <span class="badge b-maybe">看心情</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">坐礦車在叢林裡衝，有「軌道斷掉、跳過去」的效果和急轉彎。沒有大落差、沒有倒吊、沒有明顯的失重感，是給家庭坐的溫和型。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 中低</span><span class="meta">可怕 無</span><span class="meta">戶外</span><span class="meta">身高 107cm 以上</span><span class="meta">只有開門那一刻排隊短</span></div>
+          <p class="warn mt-3">它本質上還是雲霄飛車，只是很溫和。能接受哈利波特的鷹馬就大概沒問題，完全不想碰就跳過，逛大金剛區一樣好玩。</p>
+        </article>
+
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">Power-Up Band 闖關</h4><p class="jp">パワーアップバンド / キー・チャレンジ</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">戴在手上的手環。敲問號磚集金幣、蒐集印章，玩關卡小遊戲拿鑰匙，集滿 3 把鑰匙可以挑戰庫巴 Jr. 最終對決。大金剛區也有專屬的叢林小遊戲。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">約 ¥4,000~5,000</span><span class="meta">每關排隊約 5~20 分</span><span class="meta">可帶回家重複用</span></div>
+          <p class="tip mt-3">在 One-Up Factory 種類最齊。買了記得在 App 裡連動，金幣和印章才看得到。感應不到時手先移開再慢慢靠近。太難的關卡故意失敗一次，難度會降下來。9/10 起是任天堂世界 5 週年限定版闖關。</p>
+        </article>
+      </div>
+
+      <div class="mt-3 grid gap-3 sm:grid-cols-2">
+        <div class="card">
+          <h4 class="flex items-center gap-2 font-bold"><i class="ph ph-camera text-accent"></i>拍照點</h4>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">進場的綠色水管、碧姬公主城堡、區域全景（從耀西冒險或二樓平台）、瑪利歐和路易吉見面會、大金剛的家（付費合照）。晚上亮燈後再拍一輪。</p>
+        </div>
+        <div class="card">
+          <h4 class="flex items-center gap-2 font-bold"><i class="ph ph-shopping-bag text-accent"></i>買東西</h4>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300"><b>One-Up Factory</b> 最大間，什麼都有。<b>Mario Motors</b> 賣賽車周邊。大金剛區有小店，但種類少。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 哈利波特 -->
+    <div id="hp" class="mt-12">
+      <h3 class="h3">哈利波特魔法世界</h3>
+      <p class="jp mt-1">ウィザーディング・ワールド・オブ・ハリー・ポッター</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">直接進去就好，不用整理券。沒有殭屍，白天玩設施，晚上回來吃飯看城堡夜景。</p>
+
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">哈利波特禁忌之旅</h4><p class="jp">ハリー・ポッター・アンド・ザ・フォービドゥン・ジャーニー</p></div>
+            <span class="badge b-must">必玩</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">在霍格華茲城堡裡跟著哈利飛，座椅裝在機械手臂上配合大銀幕晃動。排隊會穿過城堡內部，本身就很值得看。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 中</span><span class="meta">可怕 有一點</span><span class="meta">室內</span><span class="meta">免費置物櫃</span></div>
+          <p class="warn mt-3">先打預防針：中間有幾秒的<b>巨大蜘蛛</b>和<b>催狂魔</b>畫面、會噴霧。怕蜘蛛的話那段閉眼就好。容易暈車的人可以先吃暈車藥。</p>
+        </article>
+
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">鷹馬的飛行</h4><p class="jp">フライト・オブ・ザ・ヒッポグリフ</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">小型家庭雲霄飛車，大約 1 分鐘，繞著海格小屋飛一圈。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 低</span><span class="meta">可怕 無</span><span class="meta">戶外</span></div>
+        </article>
+
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">奧利凡德的商店、魔杖魔法</h4><p class="jp">オリバンダーの店 / ワンド・マジック</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">小劇場演出「魔杖選巫師」，每場會挑一位觀眾。買互動魔杖的話，可以在區內有標記的地點揮杖施咒，讓櫥窗裡的東西動起來。</p>
+        </article>
+      </div>
+
+      <div class="tip mt-3">
+        <b>必吃：</b>奶油啤酒（バタービール），有冰的和冰沙版。<b>必逛：</b>蜂蜜公爵糖果店（巧克力蛙）、費爾奇沒收品百貨。<b>晚上：</b>城堡打燈很美，一定要回來拍。
+      </div>
+    </div>
+
+    <!-- 小小兵樂園 -->
+    <div id="area-minion" class="mt-12">
+      <h3 class="h3">小小兵樂園</h3>
+      <p class="jp mt-1">ミニオン・パーク</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">三個設施都不可怕，也沒有殭屍。</p>
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">小小兵瘋狂乘車遊</h4><p class="jp">ミニオン・ハチャメチャ・ライド</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">巨型球幕加動感座椅，被格魯的小小兵拉去冒險，搞笑不可怕。晃動感不小，容易暈的人要注意。中午前後排隊最短。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 中低</span><span class="meta">可怕 無</span><span class="meta">室內</span><span class="meta">約 5 分鐘</span></div>
+        </article>
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">小小兵瘋狂任務～成為大壞蛋之路～</h4><p class="jp">ミニオン・ハチャメチャ・ミッション ～大悪党への道～</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">2025 年新開。站在輸送帶上移動，拿雷射槍射房間裡的東西拿分數，可以在 App 看排名。完全不刺激，排隊整天大多 5~35 分。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 無</span><span class="meta">可怕 無</span><span class="meta">室內</span><span class="meta">約 7 分鐘</span></div>
+        </article>
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">小小兵冰凍雷射光乘車遊</h4><p class="jp">ミニオン・ハチャメチャ・アイス</p></div>
+            <span class="badge b-maybe">看心情</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">戶外的旋轉車，溫和。排隊整天 10~40 分，路過就坐。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 低</span><span class="meta">可怕 無</span><span class="meta">戶外</span></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 環球奇境 -->
+    <div id="area-wonderland" class="mt-12">
+      <h3 class="h3">環球奇境</h3>
+      <p class="jp mt-1">ユニバーサル・ワンダーランド</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">大門進去右轉就到。給小朋友的溫和設施，大人來主要是拍照。沒有殭屍。</p>
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">史努比飛行王牌冒險</h4><p class="jp">スヌーピーのフライング・エース・アドベンチャー</p></div>
+            <span class="badge b-maybe">看心情</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">2025 年新開的室內兒童雲霄飛車，約 1 分鐘，坐史努比的狗屋飛。刺激度跟鷹馬差不多，不想坐雲霄飛車就跳過。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 低</span><span class="meta">可怕 無</span><span class="meta">室內</span></div>
+        </article>
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">飛天史努比</h4><p class="jp">フライング・スヌーピー</p></div>
+            <span class="badge b-maybe">看心情</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">坐在史努比背上繞圈，可以自己控制高低，像小飛象那種。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 很低</span><span class="meta">可怕 無</span><span class="meta">戶外</span></div>
+        </article>
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">Hello Kitty 杯子蛋糕之夢</h4><p class="jp">ハローキティのカップケーキ・ドリーム</p></div>
+            <span class="badge b-maybe">看心情</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">杯子蛋糕造型的旋轉咖啡杯，排隊通常只要 5 分。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 很低</span><span class="meta">會轉</span><span class="meta">戶外</span></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 紐約區 -->
+    <div id="area-ny" class="mt-12">
+      <h3 class="h3">紐約區</h3>
+      <p class="jp mt-1">ニューヨーク・エリア</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">表演集中的一區，適合坐著休息。18:00 後會有殭屍。</p>
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">名偵探柯南 4-D 現場表演秀～星空的寶石～</h4><p class="jp">名探偵コナン 4-D ライブ・ショー ～星空の宝石～</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">45 公尺寬的大銀幕加上真人演員動作戲，還有水花、煙霧特效。推理劇情，不可怕。有看柯南的話很值得。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 很低</span><span class="meta">可怕 無</span><span class="meta">室內</span><span class="meta">約 20 分鐘</span><span class="meta">排隊約 30~35 分</span></div>
+        </article>
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">SING ON TOUR</h4><p class="jp">シング・オン・ツアー</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">電影《歡樂好聲音》的音樂劇場秀，角色在舞台上唱經典流行歌，坐在室內看，輕鬆。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 無</span><span class="meta">可怕 無</span><span class="meta">室內</span></div>
+        </article>
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">終極藍調盛典、酷洛米 Live</h4><p class="jp">SING ON TOUR 旁的舞台</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">戶外舞台表演。藍調盛典 14:15、15:50，酷洛米 Live 只在上午到遊行前。細節在 <a class="underline" href="#shows">表演</a> 頁。</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- 好萊塢區 -->
+    <div id="area-hollywood" class="mt-12">
+      <h3 class="h3">好萊塢區</h3>
+      <p class="jp mt-1">ハリウッド・エリア</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">大門進去就是。這區的設施是雲霄飛車，來這裡主要是逛街、看遊行、見角色。18:00 後殭屍最多的地方。</p>
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">逛街和見面會</h4><p class="jp">ショップ / グリーティング</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">環球影城商店（最大間紀念品店）、瑪利歐咖啡廳＆商店。年間パス中心前有 25 週年限定的布朗博士和時光機、藍調兄弟見面會。遊行的第一個停留點也在這區。</p>
+        </article>
+        <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">好萊塢美夢乘車遊（含倒退版）</p><p class="jp">ハリウッド・ドリーム・ザ・ライド / バックドロップ</p></div><span class="badge b-skip">雲霄飛車</span></div>
+          <p class="mt-1 text-sm text-stone-600">雲霄飛車，有大落差和高速彎道。倒退版是背對著坐、看不到前面，更刺激。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 親善村 -->
+    <div id="area-amity" class="mt-12">
+      <h3 class="h3">親善村</h3>
+      <p class="jp mt-1">アミティ・ビレッジ</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">電影《大白鯊》的海港小鎮，從任天堂往大門走會經過。</p>
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">大白鯊</h4><p class="jp">ジョーズ</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">坐船遊港，船長邊講解邊被大白鯊追，鯊魚會突然從水裡衝出來，還有爆炸。船長的日文表演很有戲，聽不懂也好笑。排隊整天大多 5~35 分，傍晚就收（9/29 約 18:00 停止排隊），白天去。</p>
+          <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">刺激 低</span><span class="meta">會被嚇一跳</span><span class="meta">戶外</span><span class="meta">約 7 分鐘</span></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 水世界 -->
+    <div id="area-waterworld" class="mt-12">
+      <h3 class="h3">水世界</h3>
+      <p class="jp mt-1">ウォーターワールド</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">自己就是獨立一區，在園區最裡面，夾在親善村和侏儸紀公園中間，任天堂的水管入口就在它右手邊。</p>
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">水世界特技秀</h4><p class="jp">ウォーターワールド</p></div>
+            <span class="badge b-good">推薦</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">約 20 分鐘的真人特技秀，有爆破和水上摩托，可以坐著休息。就在任天堂入口旁邊，前排會被潑濕。10/6 場次 11:30、13:30、15:00。</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- 侏儸紀公園 -->
+    <div id="area-jurassic" class="mt-12">
+      <h3 class="h3">侏儸紀公園</h3>
+      <p class="jp mt-1">ジュラシック・パーク</p>
+      <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">兩個設施都是刺激型的，但火雞腿（美食第 3 名）在這區入口，水世界對面。</p>
+      <div class="mt-4 grid gap-2">
+        <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">飛天翼龍</p><p class="jp">ザ・フライング・ダイナソー</p></div><span class="badge b-skip">雲霄飛車</span></div>
+          <p class="mt-1 text-sm text-stone-600">趴著、像被翼龍抓著飛的雲霄飛車，會翻圈和大迴旋，全園刺激度最高。</p>
+        </div>
+        <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">侏儸紀公園乘船遊</p><p class="jp">ジュラシック・パーク・ザ・ライド</p></div><span class="badge b-skip">大落差</span></div>
+          <p class="mt-1 text-sm text-stone-600">前半坐船看恐龍，最後從約 26 公尺高處急降，會濕。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 期間限定 -->
+    <div id="area-limited" class="mt-12">
+      <h3 class="h3">期間限定</h3>
+      <div class="mt-4 space-y-3">
+        <article class="card">
+          <div class="flex items-start justify-between gap-3">
+            <div><h4 class="font-bold">葬送的芙莉蓮 Story Walk</h4><p class="jp">葬送のフリーレン ストーリー・ウォーク ～追憶の旅～（Stage 18）</p></div>
+            <span class="badge b-maybe">看心情</span>
+          </div>
+          <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">到 2027/1/11。走進場景、看投影和大銀幕回顧冒險，是走動式體驗不是乘坐。有看動畫再去，入場方式當天看 App。</p>
+        </article>
+        <p class="tip">萬聖節的鬼屋和恐怖設施（殭屍工廠、鏈鋸人 4-D、貞子、惡靈古堡、殘像）都在 <a class="underline" href="#skip">注意</a> 頁。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 表演 ============ -->
+  <section id="shows" data-page class="pt-8">
+    <h2 class="h2">表演</h2>
+    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">10/6 的場次，紅色的是路線裡排的那一場。</p>
+
+    <div class="mt-5 space-y-3">
+      <article class="card">
+        <h3 class="font-bold">NO LIMIT! 遊行～Discover U!!! 版～</h3>
+        <p class="jp">ノーリミット！パレード</p>
+        <div class="mt-2 flex flex-wrap gap-1.5 text-xs"><span class="badge b-must">13:00</span><span class="meta">約 40 分鐘</span></div>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">25 週年限定，有瑪利歐、25 隻皮卡丘、小小兵、史努比、Hello Kitty。從好萊塢往紐約區走，停兩次：梅爾餐廳前～好萊塢美夢入口、格拉梅西公園一圈。停下來時可以下到車道一起跳舞。</p>
+        <p class="tip mt-3">想站前排提早 30 分鐘卡位。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="font-bold">Discover U!!! 時刻</h3>
+        <p class="jp">Discover U!!! タイム</p>
+        <div class="mt-2 flex flex-wrap gap-1.5 text-xs"><span class="badge b-must">11:15</span><span class="meta">大門附近キャノピー下</span></div>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">遊客和工作人員一起跟著 25 週年主題曲〈Destiny Journeys〉跳舞。官方有放舞步影片，想跳可以先看。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="font-bold">小小兵萬聖節迎賓</h3>
+        <p class="jp">ミニオン・ベロウィーン・グリーティング</p>
+        <div class="mt-2 flex flex-wrap gap-1.5 text-xs"><span class="meta">10:25</span><span class="badge b-must">12:05</span><span class="meta">14:35</span><span class="meta">16:05</span></div>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">萬聖節限定裝扮的小小兵，可以拍照互動。地點在大門附近、キャノピー下、小小兵樂園前這幾個點，每場在哪看 App。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="font-bold">水世界</h3>
+        <p class="jp">ウォーターワールド</p>
+        <div class="mt-2 flex flex-wrap gap-1.5 text-xs"><span class="meta">11:30</span><span class="meta">13:30</span><span class="badge b-must">15:00</span></div>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">約 20 分鐘的真人特技秀，有爆破和水上摩托，可以坐著休息。就在任天堂旁邊，前排會被潑濕。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="font-bold">終極藍調盛典</h3>
+        <p class="jp">アルティメット・ブルース・バッシュ ～音楽の色～</p>
+        <div class="mt-2 flex flex-wrap gap-1.5 text-xs"><span class="meta">14:15</span><span class="badge b-must">15:50</span><span class="meta">紐約區 SING ON TOUR 旁舞台</span></div>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">睽違 17 年回歸的藍調兄弟，和芝麻街的餅乾怪獸、格羅弗一起唱跳，現場樂團演奏。</p>
+      </article>
+
+      <article class="card">
+        <h3 class="font-bold">其他小表演、見面會</h3>
+        <p class="jp">ショー / グリーティング</p>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">酷洛米 Live（紐約區同一個舞台，只在上午到遊行前）、布朗博士和時光機、藍調兄弟見面會（好萊塢區年間パス中心前）。有經過就看，不用特別排。</p>
+      </article>
+    </div>
+
+    <div id="halloween" class="card mt-6">
+      <h3 class="flex items-center gap-2 text-lg font-black"><i class="ph-fill ph-skull text-accent"></i>萬聖節的晚上</h3>
+      <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">10/6 在秋季活動期間（9/10~11/8）。18:00 到閉園，路上會有殭屍遊蕩和殭屍舞表演，不用付費也不用排隊，路過就看得到。</p>
+      <ul class="mt-3 space-y-2 text-sm text-stone-700 dark:text-stone-300">
+        <li><b>街頭殭屍（ストリート・ゾンビ）：</b>好萊塢大道、大門附近通道、紐約區、舊金山區、侏儸紀公園區。今年數量是歷年最多，會靠近嚇人、可以拍照。</li>
+        <li><b>殭屍舞（ゾンビ・デ・ダンス）：</b>好萊塢大道、大門通道、舊金山區「ドラゴンズ・パール」前等好幾個舞台輪流跳，主曲是 King Gnu 的〈SO BAD〉。</li>
+        <li><b>沒有殭屍的區域：</b>任天堂、哈利波特、小小兵樂園、環球奇境。想喘口氣就往這裡走。</li>
+      </ul>
+      <p class="tip mt-3">白天就有萬聖節裝飾、小小兵萬聖節裝扮見面會，也可能看到遊客自己的變裝。要付費或要排隊進去的恐怖設施都在 <a class="underline" href="#skip">注意</a> 頁，不要進去。</p>
+    </div>
+  </section>
+
+  <!-- ============ 美食 ============ -->
+  <section id="food" data-page class="pt-8">
+    <h2 class="h2">網友推薦美食排名</h2>
+    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">綜合台灣部落客、日本美食排行和 2026 年邊走邊吃 TOP10 整理。價格是網路上的 2026 年資料，現場可能微調。</p>
+    <p class="tip mt-3">午餐尖峰所有餐廳都爆滿，提早吃或過了尖峰再吃。</p>
+
+    <ol class="mt-4 space-y-3">
+      <li class="card relative overflow-hidden">
+        <span class="pointer-events-none absolute -right-2 -top-5 font-num text-8xl font-extrabold text-accent/10">1</span>
+        <p class="font-num text-sm font-bold text-accent">No.1</p>
+        <h3 class="text-lg font-black">奶油啤酒</h3>
+        <p class="jp">バタービール</p>
+        <p class="mt-2 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>哈利波特區</b>：三根掃帚、豬頭酒吧、區內餐車</span></p>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">無酒精的碳酸飲料，上面一層甜甜的奶油泡。每篇攻略都說「必喝一次」，偏甜，冰的比熱的好喝。</p>
+        <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">約 ¥900 起</span><span class="meta">紀念杯另計</span></div>
+      </li>
+      <li class="card relative overflow-hidden">
+        <span class="pointer-events-none absolute -right-2 -top-5 font-num text-8xl font-extrabold text-accent/10">2</span>
+        <p class="font-num text-sm font-bold text-accent">No.2</p>
+        <h3 class="text-lg font-black">奇諾比奧咖啡廳</h3>
+        <p class="jp">キノピオ・カフェ</p>
+        <p class="mt-2 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>超級任天堂世界</b>：區內唯一的正式餐廳</span></p>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">瑪利歐漢堡、超級蘑菇披薩碗、磚塊提拉米蘇。網友評價是拍照滿分、CP 值普通，但來任天堂就是要吃一次。</p>
+        <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">約 ¥2,000~2,800</span><span class="meta">尖峰要用 App 抽用餐整理券</span></div>
+      </li>
+      <li class="card relative overflow-hidden">
+        <span class="pointer-events-none absolute -right-2 -top-5 font-num text-8xl font-extrabold text-accent/10">3</span>
+        <p class="font-num text-sm font-bold text-accent">No.3</p>
+        <h3 class="text-lg font-black">火雞腿</h3>
+        <p class="jp">ターキーレッグ</p>
+        <p class="mt-2 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>侏儸紀公園區</b>：乘船處前的 Splash Down Snack、Fossil Fuels；<b>紐約區</b>：Battery Park North 餐車</span></p>
+        <p class="mt-2 text-sm text-stone-700 dark:text-stone-300">跟臉差不多大的煙燻火雞腿，被稱為 USJ 代名詞。皮脆肉多汁，兩個人分剛好。</p>
+        <div class="mt-3 flex flex-wrap gap-1.5 text-xs"><span class="meta">約 ¥1,400</span></div>
+      </li>
+    </ol>
+
+    <ol class="mt-3 space-y-2" start="4">
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">4</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">三根掃帚：烤牛肉、萬聖節拼盤</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>哈利波特區</b>：三根掃帚（三本の箒）</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">常被說是園內最好吃的肉，英式酒館氣氛。萬聖節限定拼盤有肋排、煙燻雞、牧羊人派、南瓜派。約 ¥2,300~2,800。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">5</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">DK 撞毀聖代</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>大金剛區</b>：Jungle Beat Shake 餐車（ジャングル・ビート・シェイク）</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">香蕉奶昔做底的聖代，2026 邊走邊吃排行第一。份量大，兩人分。約 ¥1,500，木桶紀念杯加 ¥700。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">6</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">龜殼披薩餃</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>超級任天堂世界</b>：耀西點心島（ヨッシー・スナック・アイランド）</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">綠色龜殼造型，內餡是炒麵加起司，邊走邊吃很方便。約 ¥1,100。同一攤的耀西拉西（約 ¥900）也常被推。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">7</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">霍格華茲肉派</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>哈利波特區</b>：魔法蘿蔔蔬果攤旁的餐車（マジック・ニープ）</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">熱熱的酥皮肉派，當點心剛好，配奶油啤酒。約 ¥700。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">8</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">小小兵夾心餅乾</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>小小兵樂園</b>：Delicious Me! The Cookie Kitchen</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">軟餅乾夾冰淇淋，小小兵臉超好拍。約 ¥700。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">9</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">瑪利歐鬆餅三明治</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>好萊塢區</b>：瑪利歐咖啡廳＆商店（マリオ・カフェ＆ストア）</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">瑪利歐帽造型，草莓是瑪利歐、葡萄是路易吉。約 ¥950。就在大門附近。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">10</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">無敵星星爆米花桶</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>超級任天堂世界</b>：區內爆米花攤</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">星星桶會發光，回家可以當小夜燈，是零食也是周邊。出區前買，出去就回不來。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">11</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">Happiness Café</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>小小兵樂園旁</b>：ハピネス・カフェ</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">網友推的高 CP 值備案：人比較少、冷氣強、上菜快。炸豬排堡、炸雞飯，約 ¥2,000。</p>
+        </div>
+      </li>
+      <li class="card flex gap-3 !py-3">
+        <span class="w-7 shrink-0 font-num text-2xl font-extrabold text-stone-300 dark:text-stone-600">12</span>
+        <div class="min-w-0">
+          <h3 class="font-bold">史努比外景餐廳</h3>
+          <p class="mt-1 flex items-start gap-1.5 text-sm"><i class="ph-fill ph-map-pin mt-0.5 text-accent"></i><span><b>環球奇境</b>：スヌーピー・バックロット・カフェ</span></p>
+          <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">自助取餐出餐快，義大利麵、潛艇堡，約 ¥1,450~1,650，價格很佛心。</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="mt-4 grid gap-3">
+      <p class="tip"><b>晚餐推薦：</b>三根掃帚（吃完剛好看城堡夜景），或想快一點就 Happiness Café、史努比外景餐廳。</p>
+      <p class="tip"><b>萬聖節限定：</b>「ハミクマ」是怪可愛風的熊，有限定餐點、吉拿棒和會講話的爆米花桶。有些萬聖節餐點是恐怖聯名（惡靈古堡等），造型怕怕的就跳過。</p>
+    </div>
+  </section>
+
+  <!-- ============ 必買 ============ -->
+  <section id="shop" data-page class="pt-8">
+    <h2 class="h2">必買紀念品</h2>
+    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">綜合兩篇台灣部落客的 2026 必買清單。價格是網路資料，現場可能不同。標「伴手禮」的是適合送人的盒裝零食。</p>
+    <p class="tip mt-3">每區的商品在那一區的店買最齊，任天堂的東西在 One-Up Factory。爆米花桶在推車賣，不能退稅。</p>
+
+    <h3 class="mt-6 text-lg font-black">任天堂</h3>
+    <div class="mt-2 grid gap-2">
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">問號磚鑰匙圈</p><span class="meta shrink-0 text-xs">約 ¥1,800</span></div><p class="mt-1 text-sm text-stone-600">一撞就發出敲磚塊、拿金幣的音效，人氣第一名。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">無敵星星爆米花桶</p><span class="meta shrink-0 text-xs">約 ¥4,500~4,800</span></div><p class="mt-1 text-sm text-stone-600">會發光，有兩種發光模式。區內爆米花攤賣。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">瑪利歐賽車爆米花桶</p><span class="meta shrink-0 text-xs">約 ¥5,200~5,500</span></div><p class="mt-1 text-sm text-stone-600">賽車造型，輪胎會亮，後車身可以打開裝東西。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">瑪利歐毛帽、蘑菇髮箍、大金剛髮箍</p><span class="meta shrink-0 text-xs">約 ¥2,800~3,900</span></div><p class="mt-1 text-sm text-stone-600">在區內戴著拍照最有感。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">任天堂世界立體餅乾鐵盒</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">裡面是鬆餅和巧克力，鐵盒可以留著用。約 ¥2,400，One-Up Factory。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">大金剛木桶零食</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">木桶造型存錢筒，裡面是醬油仙貝和鹽味點心。約 ¥2,800，大金剛區。</p></div>
+    </div>
+
+    <h3 class="mt-6 text-lg font-black">哈利波特</h3>
+    <div class="mt-2 grid gap-2">
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">互動魔杖</p><span class="meta shrink-0 text-xs">約 ¥5,500~6,400</span></div><p class="mt-1 text-sm text-stone-600">可以在區內有標記的地點施咒，哈利和妙麗款最熱門。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">巧克力蛙</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">附隨機的巫師卡，經典必買。約 ¥1,400，蜂蜜公爵。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">柏蒂全口味豆</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">有嘔吐、耳屎這種整人口味，送人很有梗。約 ¥1,900~2,100。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">霍格華茲鐵盒巧克力脆餅</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">四大學院口味，寶箱造型鐵盒。約 ¥2,000。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">學院圍巾、活米村郵局明信片</p><span class="meta shrink-0 text-xs">約 ¥800~5,400</span></div><p class="mt-1 text-sm text-stone-600">明信片可以蓋活米村郵戳直接寄回台灣。</p></div>
+    </div>
+
+    <h3 class="mt-6 text-lg font-black">小小兵</h3>
+    <div class="mt-2 grid gap-2">
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">提姆熊布偶</p><span class="meta shrink-0 text-xs">約 ¥3,500 起</span></div><p class="mt-1 text-sm text-stone-600">人氣比小小兵本人還高，常被搶光。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">小小兵垃圾桶巧克力脆餅</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">吃完罐子可以當桌上小垃圾桶。約 ¥2,100。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">小小兵泡麵</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">裡面有小小兵魚板。約 ¥1,800。</p></div>
+    </div>
+
+    <h3 class="mt-6 text-lg font-black">其他</h3>
+    <div class="mt-2 grid gap-2">
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">柯南「犯人先生」玩偶</p><span class="meta shrink-0 text-xs">約 ¥2,900</span></div><p class="mt-1 text-sm text-stone-600">2026 爆紅款，手腳可以動。只在大門旁的 STUDIO GIFTS 西側賣。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">史努比吊飾、史努比高湯烏龍麵</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">環球奇境買。烏龍麵附柚子粉，約 ¥1,800。</p></div>
+      <div class="card !py-3"><div class="flex items-start justify-between gap-2"><p class="font-bold">侏儸紀公園泡麵</p><span class="badge b-good">伴手禮</span></div><p class="mt-1 text-sm text-stone-600">烤火雞腿口味。約 ¥1,800，侏儸紀區。</p></div>
+    </div>
+
+    <!-- 退稅 -->
+    <div id="tax" class="card mt-8 ring-2 !ring-accent/40">
+      <h3 class="flex items-center gap-2 text-lg font-black"><i class="ph-fill ph-receipt text-accent"></i>退稅</h3>
+      <p class="mt-2 text-sm font-bold text-accent">閉園前排超久，閉園後就不能辦。路線排在下午藍調盛典之後去。</p>
+      <ul class="mt-3 space-y-2 text-sm text-stone-700 dark:text-stone-300">
+        <li><b>地點：</b>大門旁的 STUDIO GIFTS（進園右手邊、出園左手邊），門口有 TAX FREE。</li>
+        <li><b>時間：</b>下午 2 點後開始受理，16:00 後會變慢，閉園就停止。越早去越好。</li>
+        <li><b>要帶：</b>護照、收據、商品（不能拆），三樣缺一不可。</li>
+        <li><b>金額：</b>當天園內買滿未稅 ¥5,000。周邊和零食分開算，各自滿 ¥5,000 比較保險；不同店的收據能不能合併，各家說法不一，想保險就在同一間店一次買齊。</li>
+        <li><b>退多少：</b>10% 扣掉 3.3% 手續費，實拿約 6.7%，退現金。</li>
+        <li><b>不能退：</b>門票、餐飲、爆米花桶、照片、宅配。</li>
+        <li><b>封袋：</b>退完會封進免稅袋，離開日本前不能拆。巫師袍、魔杖如果已經穿戴著，要先脫下來一起封。</li>
+      </ul>
+      <p class="tip mt-3">退完的袋子可以先放大門附近的置物櫃，閉園再拿。日本 11/1 起改新的退稅制度，10/6 還是照上面這套辦。</p>
+    </div>
+  </section>
+
+  <!-- ============ 注意 ============ -->
+  <section id="skip" data-page class="pt-8">
+    <h2 class="h2">注意</h2>
+    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400">雲霄飛車、大落差和萬聖節鬼屋，原因都寫在下面。</p>
+
+    <h3 class="mt-6 font-bold">雲霄飛車 / 大落差</h3>
+    <div class="mt-2 grid gap-2">
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">飛天翼龍</p><p class="jp">ザ・フライング・ダイナソー</p></div><span class="badge b-skip">雲霄飛車</span></div>
+          <p class="mt-1 text-sm text-stone-600">趴著、像被翼龍抓著飛的雲霄飛車，會翻圈和大迴旋，全園刺激度最高。</p>
+        </div>
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">好萊塢美夢乘車遊（含倒退版）</p><p class="jp">ハリウッド・ドリーム・ザ・ライド / バックドロップ</p></div><span class="badge b-skip">雲霄飛車</span></div>
+          <p class="mt-1 text-sm text-stone-600">雲霄飛車，有大落差和高速彎道。倒退版是背對著坐、看不到前面，更刺激。</p>
+        </div>
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">侏儸紀公園乘船遊</p><p class="jp">ジュラシック・パーク・ザ・ライド</p></div><span class="badge b-skip">大落差</span></div>
+          <p class="mt-1 text-sm text-stone-600">前半坐船看恐龍，最後從約 26 公尺高處急降，會濕。</p>
+        </div>
+    </div>
+
+    <h3 class="mt-6 font-bold">萬聖節鬼屋 / 恐怖設施</h3>
+    <div class="mt-2 grid gap-2">
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">殭屍工廠之旅</p><p class="jp">ファクトリー・オブ・フィアー（Stage 22）</p></div><span class="badge b-skip">鬼屋</span></div>
+          <p class="mt-1 text-sm text-stone-600">被殭屍包圍的導覽型鬼屋，白天 10:00 就開。</p>
+        </div>
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">鏈鋸人 4-D</p><p class="jp">チェンソーマン・ザ・カオス 4-D（シネマ 4-D シアター）</p></div><span class="badge b-skip">血腥</span></div>
+          <p class="mt-1 text-sm text-stone-600">鏈鋸人的 4-D 電影，血腥畫面很多。</p>
+        </div>
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">貞子的詛咒</p><p class="jp">貞子の呪い ～ダーク・ホラー・ライド～</p></div><span class="badge b-skip">恐怖</span></div>
+          <p class="mt-1 text-sm text-stone-600">在一片漆黑中高速逃離貞子的恐怖乘坐設施。</p>
+        </div>
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">惡靈古堡</p><p class="jp">バイオハザード</p></div><span class="badge b-skip">付費鬼屋</span></div>
+          <p class="mt-1 text-sm text-stone-600">R-15 鬼屋，怪物從四面八方撲過來，要另外買票。</p>
+        </div>
+      <div class="card !py-3">
+          <div class="flex items-start justify-between gap-3"><div><p class="font-medium">殘像</p><p class="jp">残像（R-18）</p></div><span class="badge b-skip">付費鬼屋</span></div>
+          <p class="mt-1 text-sm text-stone-600">今年新推的 R-18 心理恐怖設施，要簽同意書、另外買票。</p>
+        </div>
+    </div>
+
+  </section>
+</main>
+
+<footer class="mx-auto max-w-xl px-4 pb-28 text-xs text-stone-500">
+  <div class="border-t border-stone-200 pt-5 dark:border-stone-800">
+    <p>資料整理於 2026/9/30。營業時間、設施休止、表演場次都以官方 App 和官網為準。</p>
+    <div class="mt-3 flex flex-wrap gap-2">
+      <a class="rounded-full px-3 py-1.5 ring-1 ring-stone-300 dark:ring-stone-700" href="https://www.usj.co.jp/web/ja/jp/park-guide/schedule/park-hour" target="_blank" rel="noopener">營業時間</a>
+      <a class="rounded-full px-3 py-1.5 ring-1 ring-stone-300 dark:ring-stone-700" href="https://www.usj.co.jp/web/ja/jp/enjoy/numbered-ticket/timed-entry-ticket" target="_blank" rel="noopener">整理券說明</a>
+      <a class="rounded-full px-3 py-1.5 ring-1 ring-stone-300 dark:ring-stone-700" href="https://www.usj.co.jp/web/ja/jp/events/halloween-extreme-autumn-2026" target="_blank" rel="noopener">萬聖節活動</a>
+      <a class="rounded-full px-3 py-1.5 ring-1 ring-stone-300 dark:ring-stone-700" href="https://www.usj.co.jp/web/ja/jp/areas/super-nintendo-world" target="_blank" rel="noopener">任天堂世界</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 底部分頁列 -->
+<nav class="fixed inset-x-0 bottom-0 z-20 border-t border-stone-200 bg-stone-50/95 pb-[env(safe-area-inset-bottom)] backdrop-blur dark:border-stone-800 dark:bg-stone-950/95">
+  <div class="mx-auto grid max-w-xl grid-cols-6">
+    <a href="#plan" class="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-stone-500 aria-[current=page]:text-accent"><i class="ph ph-map-trifold text-2xl"></i>路線</a>
+    <a href="#rides" class="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-stone-500 aria-[current=page]:text-accent"><i class="ph ph-castle-turret text-2xl"></i>設施</a>
+    <a href="#shows" class="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-stone-500 aria-[current=page]:text-accent"><i class="ph ph-microphone-stage text-2xl"></i>表演</a>
+    <a href="#food" class="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-stone-500 aria-[current=page]:text-accent"><i class="ph ph-fork-knife text-2xl"></i>美食</a>
+    <a href="#shop" class="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-stone-500 aria-[current=page]:text-accent"><i class="ph ph-shopping-bag text-2xl"></i>必買</a>
+    <a href="#skip" class="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-stone-500 aria-[current=page]:text-accent"><i class="ph ph-warning text-2xl"></i>注意</a>
+  </div>
+</nav>
+
+<script>
+  // 分頁：網址 #hash 決定顯示哪一頁；#dk 這種頁內錨點會切到所屬頁再捲過去
+  const pages = [...document.querySelectorAll('[data-page]')];
+  const tabs = document.querySelectorAll('nav a');
+  function show() {
+    const target = document.getElementById(location.hash.slice(1));
+    const page = target?.closest('[data-page]') || pages[0];
+    pages.forEach(p => p.hidden = p !== page);
+    tabs.forEach(a => a.getAttribute('href') === '#' + page.id
+      ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+    if (page.id === 'rides' && target !== page) { rideFilter.area = rideFilter.rating = ''; applyRideFilter(); }
+    if (target && target !== page) target.scrollIntoView();
+    else window.scrollTo(0, 0);
+  }
+  addEventListener('hashchange', show);
+
+  // 設施頁篩選：區域按鈕和標籤按鈕可以一起用，再按一次同一顆就取消
+  const rideFilter = { area: '', rating: '' };
+  const rideAreas = [...document.querySelectorAll('#rides > div[id^="area-"], #nintendo, #hp')];
+  const looseTips = [...document.querySelectorAll('#rides .tip')].filter(t => !t.closest('.card'));
+  function applyRideFilter() {
+    document.querySelectorAll('#zone-filters [data-area]').forEach(b => b.setAttribute('aria-pressed', b.dataset.area === rideFilter.area));
+    document.querySelectorAll('#filters [data-filter]').forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === rideFilter.rating));
+    const r = rideFilter.rating;
+    document.querySelectorAll('#rides .card').forEach(c => c.hidden = !!r && !c.querySelector('.badge')?.classList.contains(r));
+    looseTips.forEach(t => t.hidden = !!r);
+    rideAreas.forEach(a => a.hidden = (rideFilter.area && a.id !== rideFilter.area) || (r && !a.querySelector('.card:not([hidden])')));
+  }
+  document.getElementById('zone-filters').addEventListener('click', e => {
+    const b = e.target.closest('[data-area]');
+    if (!b) return;
+    rideFilter.area = rideFilter.area === b.dataset.area ? '' : b.dataset.area;
+    applyRideFilter();
+  });
+  document.getElementById('filters').addEventListener('click', e => {
+    const b = e.target.closest('[data-filter]');
+    if (!b) return;
+    rideFilter.rating = rideFilter.rating === b.dataset.filter ? '' : b.dataset.filter;
+    applyRideFilter();
+  });
+  show();
+</script>
+</body>
+</html>
